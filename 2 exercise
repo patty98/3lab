@@ -1,0 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+int  main(){
+char mas[30];
+int i,k=0,j=0;
+char value;
+int *p,*str;
+FILE *F;
+F=fopen("input.txt","rt");
+if (F==NULL){
+	printf("can not open file");
+	return;
+}
+p = (int *) malloc(0);
+while(!feof(F)){
+	fgets(mas,sizeof(mas),F);
+	for(i=0;i<sizeof(mas);i++){
+		if(mas[i]=='.'){
+			k++;
+		}
+		}
+	k+=1;
+str=(int *)realloc(p,k*sizeof(int));
+printf("%d",sizeof(str));
+}
+free(p);
+printf("%d",sizeof(p));
+/*for (i = 0; i <sizeof(p); i++) 
+{ 
+for (j = 0; j < sizeof(p); j++) 
+{ 
+fscanf(F, "%d", &value); 
+if (value == '.') 
+{ 
+p[i * (k+1) + j]=0;
+} 
+printf("%d ", value); 
+p[i * (k +1) + j] = value; 
+} 
+printf("\n"); 
+} 
+*/
+fclose(F);
+}
